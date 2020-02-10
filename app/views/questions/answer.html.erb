@@ -1,0 +1,30 @@
+<% answer = "" %>
+
+<% if params[:question].nil?
+answer = "That`s not an question"
+else
+if params[:question] == "I am going to work"
+  answer = "Great!"
+  elsif params[:question].include? "?"
+  answer = "Silly question, get dressed and go to work!"
+  else
+  answer = "I don't care, get dressed and go to work!"
+  end
+end%>
+
+<h1>Stupid coaching</h1>
+
+<div class="quotes">
+  <h3>"<%= params[:question] %>"</h3>
+  <p><i>- You</i></p>
+</div>
+
+
+<div class="quotes">
+  <h3><strong><%= answer %></strong></h3>
+  <p><i>- The coach</i></p>
+</div>
+
+<%= link_to "Ask another question", "/ask" %>
+
+<!-- The answer will display the question and the params -->
